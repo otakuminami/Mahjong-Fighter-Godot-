@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://m4qeac1jj386"]
+
+[ext_resource type="Script" path="res://Helloworld/helloworld.gd" id="1_qhavk"]
+[ext_resource type="PackedScene" uid="uid://dl3g6op46qeh4" path="res://Helloworld/helloworld_UI.tscn" id="2_2xioh"]
+
+[node name="Helloworld" type="Node2D"]
+script = ExtResource("1_qhavk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Helloworld_UI" parent="CanvasLayer" instance=ExtResource("2_2xioh")]
+anchors_preset = -1
+anchor_bottom = 1.185
+offset_bottom = 0.11996
+grow_horizontal = 1
+grow_vertical = 1

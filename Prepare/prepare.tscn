@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://uikkbdsot4ne"]
+
+[ext_resource type="Texture2D" uid="uid://cp4iq5fd6j8be" path="res://Assets/Kenny art/background.png" id="1_bebbk"]
+[ext_resource type="Script" path="res://Prepare/prepare.gd" id="1_lm8wf"]
+[ext_resource type="PackedScene" uid="uid://003blod15r4l" path="res://Scenes/card_ui.tscn" id="3_vewll"]
+[ext_resource type="PackedScene" uid="uid://bityvc26wvgpv" path="res://GUI/go_fight.tscn" id="4_e4352"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sjo4h"]
+font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_fqhy1"]
+font_size = 40
+
+[node name="Prepare" type="Node2D"]
+script = ExtResource("1_lm8wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.45098)
+position = Vector2(960.5, 541)
+scale = Vector2(7.48828, 7.5)
+texture = ExtResource("1_bebbk")
+
+[node name="level" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 784.0
+offset_top = 124.0
+offset_right = 826.0
+offset_bottom = 158.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "1"
+label_settings = SubResource("LabelSettings_sjo4h")
+
+[node name="CardPileUI" type="CanvasLayer" parent="."]
+
+[node name="Pile" type="HBoxContainer" parent="CardPileUI"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.988
+anchor_right = 0.5
+anchor_bottom = 0.988
+offset_left = -786.0
+offset_top = -240.04
+offset_right = -586.0
+offset_bottom = -210.04
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(8, 8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="CardUI" parent="CardPileUI/Pile" instance=ExtResource("3_vewll")]
+layout_mode = 2
+
+[node name="Button1" type="Button" parent="CardPileUI/Pile/CardUI"]
+layout_mode = 1
+offset_left = 5.75
+offset_top = 21.25
+offset_right = 45.75
+offset_bottom = 52.25
+scale = Vector2(0.3, 0.3)
+text = "选我"
+
+[node name="CardUI2" parent="CardPileUI/Pile" instance=ExtResource("3_vewll")]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="CardPileUI/Pile/CardUI2"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 21.25
+offset_right = 45.75
+offset_bottom = 52.25
+scale = Vector2(0.3, 0.3)
+text = "选我"
+
+[node name="CardUI3" parent="CardPileUI/Pile" instance=ExtResource("3_vewll")]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="CardPileUI/Pile/CardUI3"]
+layout_mode = 0
+offset_left = 5.75
+offset_top = 21.25
+offset_right = 45.75
+offset_bottom = 52.25
+scale = Vector2(0.3, 0.3)
+text = "选我"
+
+[node name="CardUI" parent="." instance=ExtResource("3_vewll")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 761.0
+offset_top = 314.0
+offset_right = 786.0
+offset_bottom = 344.0
+scale = Vector2(15, 15)
+mouse_filter = 0
+
+[node name="Go_fight" parent="." instance=ExtResource("4_e4352")]
+offset_left = 1673.0
+offset_top = 647.0
+offset_right = 1673.0
+offset_bottom = 647.0
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 174.0
+offset_top = 728.0
+offset_right = 734.0
+offset_bottom = 785.0
+text = "选好战斗卡牌后，点 GO 去战斗"
+label_settings = SubResource("LabelSettings_fqhy1")
+
+[connection signal="show_card" from="CardPileUI/Pile/CardUI" to="." method="_on_card_ui_show_card"]
+[connection signal="show_no_card" from="CardPileUI/Pile/CardUI" to="." method="_on_card_ui_show_no_card"]
+[connection signal="pressed" from="CardPileUI/Pile/CardUI/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="show_card" from="CardPileUI/Pile/CardUI2" to="." method="_on_card_ui_show_card"]
+[connection signal="show_no_card" from="CardPileUI/Pile/CardUI2" to="." method="_on_card_ui_show_no_card"]
+[connection signal="pressed" from="CardPileUI/Pile/CardUI2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="show_card" from="CardPileUI/Pile/CardUI3" to="." method="_on_card_ui_show_card"]
+[connection signal="show_no_card" from="CardPileUI/Pile/CardUI3" to="." method="_on_card_ui_show_no_card"]
+[connection signal="pressed" from="CardPileUI/Pile/CardUI3/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="go" from="Go_fight" to="." method="_on_go_fight_go"]

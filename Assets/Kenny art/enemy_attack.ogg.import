@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://de2ryat1pxq6"
+path="res://.godot/imported/enemy_attack.ogg-11e09dbaf80c503eaf19613a217c0484.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Kenny art/enemy_attack.ogg"
+dest_files=["res://.godot/imported/enemy_attack.ogg-11e09dbaf80c503eaf19613a217c0484.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bftt564tix4bw"]
+
+[ext_resource type="Texture2D" uid="uid://birqlpejakdty" path="res://Assets/Pixel Adventure 1/Assets/Traps/Blocks/Idle.png" id="1_og5ju"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xix0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_og5ju")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0ryj"]
+size = Vector2(16, 16)
+
+[node name="platform" type="AnimatedSprite2D"]
+position = Vector2(8, -3)
+scale = Vector2(1, 0.3)
+sprite_frames = SubResource("SpriteFrames_xix0f")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_e0ryj")
+one_way_collision = true

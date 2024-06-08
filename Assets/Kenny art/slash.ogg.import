@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dixklg6g4jnsq"
+path="res://.godot/imported/slash.ogg-150eefcfb01ad919fdcbdf14328511f3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Kenny art/slash.ogg"
+dest_files=["res://.godot/imported/slash.ogg-150eefcfb01ad919fdcbdf14328511f3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

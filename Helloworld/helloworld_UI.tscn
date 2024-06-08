@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl3g6op46qeh4"]
+
+[ext_resource type="Script" path="res://Helloworld/helloworld_UI.gd" id="1_qhavk"]
+[ext_resource type="LabelSettings" uid="uid://ba28awrxbd4w1" path="res://Helloworld/LabelSitting/main_body_label_sitting.tres" id="1_y1oka"]
+[ext_resource type="Texture2D" uid="uid://cwhbrbje6m8hg" path="res://Helloworld/IMG_5974.JPG" id="3_a1c3a"]
+[ext_resource type="LabelSettings" uid="uid://br5pqvybuoauu" path="res://Helloworld/LabelSitting/right_bottom_label_settings.tres" id="3_k64bg"]
+[ext_resource type="Texture2D" uid="uid://uowsfmia43ld" path="res://Assets/Others/Frame_2.png" id="5_225ju"]
+
+[sub_resource type="Animation" id="Animation_spjbs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_iyt5s"]
+resource_name = "new_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.02, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q58yp"]
+_data = {
+"RESET": SubResource("Animation_spjbs"),
+"new_animation": SubResource("Animation_iyt5s")
+}
+
+[node name="Helloworld_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qhavk")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.901961, 0.894118, 0.854902, 1)
+
+[node name="thx" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.395
+anchor_right = 0.944
+anchor_bottom = 0.395
+offset_left = -24.704
+offset_top = 0.039993
+offset_right = 0.511925
+offset_bottom = 421.496
+grow_horizontal = 2
+grow_vertical = 0
+text = "🎮 欢迎来到我的小游戏！🌟
+作为一款由一个初学者用毕生所学打造的游戏，希望能够给你带来一段愉快的游戏体验。
+
+💌 如果您在游戏中遇到任何问题或者有任何意见，都请您毫不犹豫地与我联系。我非常重视您的反馈，会尽力解决您的问题，并不断优化游戏以满足您的需求。
+
+谢谢！🙏"
+label_settings = ExtResource("1_y1oka")
+vertical_alignment = 1
+autowrap_mode = 3
+language = "zh_CN"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="thx"]
+libraries = {
+"": SubResource("AnimationLibrary_q58yp")
+}
+autoplay = "new_animation"
+
+[node name="icon" type="TextureRect" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.148
+anchor_right = 0.507
+anchor_bottom = 0.148
+offset_left = -157.44
+offset_top = 0.159998
+offset_right = 922.56
+offset_bottom = 1062.16
+grow_horizontal = 2
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_a1c3a")
+stretch_mode = 5
+
+[node name="continue" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.653
+anchor_top = 0.753
+anchor_right = 0.882
+anchor_bottom = 0.821
+offset_left = -8.25607
+offset_top = 0.0559864
+offset_right = -0.0640335
+offset_bottom = -0.00802565
+grow_horizontal = 0
+grow_vertical = 0
+text = "点击「空格」继续..  "
+label_settings = ExtResource("3_k64bg")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="cloud" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.156
+anchor_right = 0.504
+anchor_bottom = 0.156
+offset_left = -193.0
+offset_top = 159.52
+offset_right = 1986.32
+offset_bottom = 1066.52
+grow_horizontal = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_225ju")

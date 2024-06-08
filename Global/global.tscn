@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbfr1dtsngqma"]
+
+[ext_resource type="Script" path="res://Global/global.gd" id="1_fxhww"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_fxhww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

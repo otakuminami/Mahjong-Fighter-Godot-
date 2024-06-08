@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4oo5osbq2j3h"]
+
+[ext_resource type="PackedScene" uid="uid://bbc8rq1nx773h" path="res://Player/player.tscn" id="1_ax6ag"]
+[ext_resource type="Texture2D" uid="uid://b3ay4x0ec78uq" path="res://Assets/Pixel Adventure 1/Assets/Traps/Platforms/Brown On (32x8).png" id="2_j8q22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m8jn"]
+size = Vector2(256, 5)
+
+[node name="Jumpman" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ax6ag")]
+position = Vector2(440, 520)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 976)
+scale = Vector2(19, 19)
+texture = ExtResource("2_j8q22")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Sprite2D"]
+collision_layer = 32
+gravity_scale = 1.66533e-16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/RigidBody2D"]
+shape = SubResource("RectangleShape2D_6m8jn")
